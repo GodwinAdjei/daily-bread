@@ -1,32 +1,28 @@
-# Daily Bread (test PWA)
+# Daily Bread v2 — 2023 B.R.E.A.D. Bible reading tracker
 
-A small, installable Bible reading tracker using local device storage. It does not include copyrighted NIV Bible text. The **Read** links open YouVersion NIV, starting at the first chapter of each assigned range (continue through the listed ending chapter in YouVersion).
+Contains 365 daily passages, transcribed from the six close-up photos supplied by the owner of the booklet. Includes all twelve months, progress tracking, a next-unfinished-reading card, links opening YouVersion NIV at the **starting chapter** of each separated passage, offline schedule access after initial installation, backup export/import, and optional import of the booklet's existing checked boxes (January–May and June 1–5).
 
-## Test data
+## Publish / update on GitHub Pages
 
-January 1: Genesis 1-3 — supplied by user
-January 2: Genesis 4-7 — supplied by user
-January 3: Genesis 8-11 — TEMPORARY SAMPLE (not confirmed as part of 2023 B.R.E.A.D.)
-January 4: Genesis 12-15 — TEMPORARY SAMPLE
-January 5: Genesis 16-19 — TEMPORARY SAMPLE
+1. Unzip this package.
+2. Open your existing `daily-bread` repository on GitHub.
+3. **Before updating**, open the current live app and export a backup under **Backup**, then save that backup file somewhere safe.
+4. Upload **the files INSIDE the `daily-bread` folder**, replacing the repository's existing files. Be sure `index.html`, `app.js`, `style.css`, `readings.json`, `sw.js`, `manifest.webmanifest`, and `icons/` are at the repository root.
+5. Commit your changes. GitHub Pages republishes automatically when your existing deployment uses the `main` branch and `/(root)`.
+6. Open your app online and refresh. If it still shows only five entries, fully close/reopen the web app, or refresh Safari, to load the new service-worker cache. Check the progress first.
+7. Click **Import checkmarks from my booklet** once if you want to bring in the 156 marked days seen in the photos. This adds completed days to existing ones without clearing the others.
 
-## Publish for free using GitHub Pages
+If you don't have a repository yet: create a public GitHub repository `daily-bread`, upload the files at root, then enable Settings > Pages > Deploy from branch > main > /(root). Visit `https://YOUR-USERNAME.github.io/daily-bread/` in Safari and select Share > Add to Home Screen.
 
-1. Sign into github.com and create a **public** repository called `daily-bread`. Do not check a README option; these files already include one.
-2. Select **Add file > Upload files**. Upload the CONTENTS of the `daily-bread` folder (index.html, app.js, style.css, manifest.webmanifest, sw.js, README.md, and the `icons` directory). Verify index.html is at the repository root, not nested under another daily-bread folder.
-3. Commit changes.
-4. Go to **Settings > Pages > Build and deployment**. Choose **Deploy from a branch**, branch **main**, folder **/(root)**, then Save.
-5. Visit `https://YOUR-USERNAME.github.io/daily-bread/` after GitHub reports that the site is live. It must use HTTPS for install/offline support.
-6. On iPhone, open that URL in **Safari**. Tap **Share > Add to Home Screen**. Enable **Open as Web App** if shown; tap **Add**.
+## Updating readings later
 
-No domain purchase or Apple Developer account needed. GitHub Pages serves the app publicly at its URL; do not add sensitive personal data to the repo. Progress is not uploaded: it is stored locally, per device and browser app. **Export backups regularly** from the app. If site data is cleared, checkmarks can disappear.
+Edit `readings.json`. Keep each day's `id` the same, because it identifies stored checkmarks. `bookletChecked` is used for one-time import and is not an automatically enforced completion state.
 
-## Editing
+## Notes and limitations
 
-Edit the `READINGS` array near the top of `app.js` and commit changes to your repository. Each entry has a stable `id`; keep existing IDs unchanged to preserve checkmarks. Update `CACHE` in `sw.js` from `daily-bread-shell-v1` to `daily-bread-shell-v2` (and so on) for each release. New code will be retrieved when the device is online; close/reopen the app to see changes if needed.
-
-All links currently open at the first chapter of a reading range, not an entire multi-chapter view. YouVersion page formats may change.
-
-## Test locally on a computer
-
-Run `python -m http.server 8000` from this folder, then open http://localhost:8000. Directly opening index.html from a file may disable install/offline features.
+- The checkmarks are saved in this device's browser storage, **not the cloud**. Keep backup exports. Firebase cloud sync has not been implemented.
+- YouVersion links open **at the first chapter** of each listed sub-passage, not necessarily the entire multi-chapter range or verse-specific start/end. Read the full printed assignment shown in the app. Internet is needed to read NIV.
+- No NIV Bible text is stored or redistributed.
+- The booklet photos show 156 checked days: January 31 + February 28 + March 31 + April 30 + May 31 + June 1–5.
+- If a reading needs correction, edit its `passage` string in `readings.json` and republish.
+- Do not overwrite the public GitHub repository with any private backup file: those backups contain your reading progress.

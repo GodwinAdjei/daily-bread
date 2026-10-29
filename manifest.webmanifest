@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "Daily Bread \u2014 Bible Reading Tracker",
+  "short_name": "Daily Bread",
+  "description": "Personal B.R.E.A.D. reading tracker with YouVersion links",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf5ed",
+  "theme_color": "#283448",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

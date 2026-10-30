@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#283448">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Daily Bread">
+  <meta name="description" content="Your B.R.E.A.D. Bible reading checklist.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Daily Bread</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar"><img class="brand-icon" src="./icons/apple-touch-icon.png" alt=""><span>DAILY BREAD</span><button type="button" id="accountBtn" class="quiet-button">Cloud sync</button><button type="button" id="backupBtn" class="quiet-button">Backup</button></header>
+    <section class="hero">
+      <div class="eyebrow">YOUR B.R.E.A.D. READING PLAN</div>
+      <h1>One day<br>at a time<span class="period">.</span></h1>
+      <p>Pick up right where you left off.</p>
+      <div class="progress-meta"><strong id="progressText">0 of 365 completed</strong><strong id="progressPercent">0%</strong></div>
+      <div class="progress-track" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="365" aria-valuenow="0" id="progressBar"><div id="progressFill"></div></div>
+    </section>
+    <div class="sync-banner" id="syncBanner" role="status">Saved on this device · Cloud sync not configured</div>
+    <section class="next-card" id="nextCard" aria-live="polite"></section>
+    <div class="section-heading"><div><div class="eyebrow">2023 READING SCHEDULE</div><h2 id="monthHeading">January</h2></div><span class="month-count" id="monthCount">0 / 31 complete</span></div>
+    <label class="month-label" for="monthPicker">Choose month</label><select id="monthPicker" class="month-picker" aria-label="Choose reading month"></select><section class="list" id="readingList" aria-label="January readings"></section>
+    <p class="hint">Your checkmarks save instantly on this device. Sign in through Cloud sync to back them up automatically. YouVersion NIV links open at the starting chapter and require internet.</p>
+    <footer>Made for showing up, one reading at a time.</footer>
+  </main>
+  <dialog id="backupDialog"><div class="dialog-inner"><h2>Back up your progress</h2><p>Save a backup file to restore checkmarks later or move them to another device.</p><div class="dialog-actions"><button id="exportBtn">Export backup</button><label class="import-label">Import backup<input type="file" id="importFile" accept="application/json,.json" hidden></label></div><button class="close-button" id="closeDialog">Close</button><p class="dialog-status" id="backupStatus" role="status"></p></div></dialog>
+  <dialog id="accountDialog"><div class="dialog-inner"><h2>Cloud sync</h2><p id="accountHelp">Sign in with Google to automatically save and restore your checkmarks across devices. Reading progress is also saved locally.</p><p id="accountEmail"></p><div class="dialog-actions"><button type="button" id="signinBtn">Sign in with Google</button><button type="button" id="signoutBtn" hidden>Sign out</button></div><button type="button" class="close-button" id="closeAccount">Close</button><p id="accountStatus" class="dialog-status" role="status"></p></div></dialog>
+  <script>
+    // Local UI handlers should work even if an external Firebase module cannot load.
+    document.getElementById('accountBtn').addEventListener('click', () => {
+      const dialog = document.getElementById('accountDialog');
+      if (!dialog.open) dialog.showModal();
+    });
+    document.getElementById('closeAccount').addEventListener('click', () =>
+      document.getElementById('accountDialog').close());
+  </script>
+  <script src="./app.js" defer></script>
+  <script type="module" src="./cloud.js?v=3.2"></script>
+</body>
+</html>

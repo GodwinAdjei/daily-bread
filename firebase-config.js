@@ -1,6 +1,6 @@
 // Paste the Firebase Web App configuration from Firebase Console here.
 // These values are public client identifiers, NOT a secret service account key.
-window.DAILY_BREAD_FIREBASE_CONFIG = {
+export const firebaseConfig = { {
   apiKey: "AIzaSyCIM06Jq8M8IYkZ6Y38zYXnc2JPQAuf10E",
   authDomain: "sustenance-9c9a9.firebaseapp.com",
   projectId: "sustenance-9c9a9",

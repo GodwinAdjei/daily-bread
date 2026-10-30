@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Daily Bread \u2014 Bible Reading Tracker",
-  "short_name": "Daily Bread",
-  "description": "Personal B.R.E.A.D. reading tracker with YouVersion links",
+  "name": "Sustenance \u2014 Bible Reading Tracker",
+  "short_name": "Sustenance",
+  "description": "Personal Bible reading tracker with YouVersion links and cloud sync",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -9,3 +9,9 @@
 .sync-banner::before{content:'●';font-size:10px;color:#bd8c67}.sync-banner.synced::before{color:#438269}.sync-banner.syncing::before{color:#c4924e}.sync-banner.error::before{color:#bb6262}
 #accountEmail{font-weight:700;color:#283448}#accountStatus{overflow-wrap:anywhere}
 @media(max-width:380px){.topbar{font-size:10px;letter-spacing:.1em}.quiet-button{font-size:11px;padding:8px}}
+
+/* Sustenance v3.3: give the secondary action breathing room on narrow screens. */
+.next-card .jump-button { margin: 12px 0 0 14px; }
+@media (max-width: 540px) {
+  .next-card .jump-button { display: block; margin: 18px 0 0; padding: 9px 2px; text-align: left; }
+}

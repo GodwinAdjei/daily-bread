@@ -6,19 +6,18 @@
   <meta name="theme-color" content="#283448">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Daily Bread">
-  <meta name="description" content="Your B.R.E.A.D. Bible reading checklist.">
+  <meta name="apple-mobile-web-app-title" content="Sustenance">
+  <meta name="description" content="Your personal Bible reading checklist.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="stylesheet" href="./style.css">
-  <title>Daily Bread</title>
+  <title>Sustenance</title>
 </head>
 <body>
   <main class="app">
-    <header class="topbar"><img class="brand-icon" src="./icons/apple-touch-icon.png" alt=""><span>DAILY BREAD</span><button type="button" id="accountBtn" class="quiet-button">Cloud sync</button><button type="button" id="backupBtn" class="quiet-button">Backup</button></header>
+    <header class="topbar"><img class="brand-icon" src="./icons/apple-touch-icon.png" alt=""><span>SUSTENANCE</span><button type="button" id="accountBtn" class="quiet-button">Cloud sync</button><button type="button" id="backupBtn" class="quiet-button">Backup</button></header>
     <section class="hero">
-      <div class="eyebrow">YOUR B.R.E.A.D. READING PLAN</div>
       <h1>One day<br>at a time<span class="period">.</span></h1>
       <p>Pick up right where you left off.</p>
       <div class="progress-meta"><strong id="progressText">0 of 365 completed</strong><strong id="progressPercent">0%</strong></div>
@@ -43,6 +42,6 @@
       document.getElementById('accountDialog').close());
   </script>
   <script src="./app.js" defer></script>
-  <script type="module" src="./cloud.js?v=3.2"></script>
+  <script type="module" src="./cloud.js?v=3.3"></script>
 </body>
 </html>
